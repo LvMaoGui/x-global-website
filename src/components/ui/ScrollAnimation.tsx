@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useInView, type UseInViewOptions } from "framer-motion";
+import { motion, useInView, type UseInViewOptions, type Variants } from "framer-motion";
 
 interface ScrollAnimationProps {
   children: React.ReactNode;
@@ -23,11 +23,19 @@ export const ScrollAnimation = ({
   const ref = useRef(null);
   const isInView = useInView(ref, viewport);
 
-  const getVariants = () => {
+  const getVariants = (): Variants => {
     const distance = 30;
     
-    const variants = {
-      hidden: { opacity: 0, x: 0, y: 0 },
+    let hiddenX = 0;
+    let hiddenY = 0;
+
+    if (direction === "up") hiddenY = distance;
+    if (direction === "down") hiddenY = -distance;
+    if (direction === "left") hiddenX = distance;
+    if (direction === "right") hiddenX = -distance;
+    
+    const variants: Variants = {
+      hidden: { opacity: 0, x: hiddenX, y: hiddenY },
       visible: { 
         opacity: 1, 
         x: 0, 
@@ -39,11 +47,6 @@ export const ScrollAnimation = ({
         }
       },
     };
-
-    if (direction === "up") variants.hidden.y = distance;
-    if (direction === "down") variants.hidden.y = -distance;
-    if (direction === "left") variants.hidden.x = distance;
-    if (direction === "right") variants.hidden.x = -distance;
 
     return variants;
   };
