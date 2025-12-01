@@ -1,63 +1,58 @@
 import React from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export const ContactSection = () => {
   return (
     <section id="contact" className="section-padding bg-white">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-16">
-          <div>
-            <h2 className="text-3xl lg:text-5xl font-bold text-primary mb-6">
-              Contact Us
-            </h2>
-            <p className="text-lg text-secondary mb-12">
-              Ready to transform your financial operations? Get in touch with
-              our team today.
-            </p>
+        {/* 标题部分居中 */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl lg:text-5xl font-bold text-primary mb-6">
+            Contact Us
+          </h2>
+          <p className="text-lg text-secondary">
+            Ready to transform your financial operations? Get in touch with our
+            team today.
+          </p>
+        </div>
 
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-primary">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-primary mb-1">
-                    Email Us
-                  </h4>
-                  <p className="text-secondary">contact@xglobal.com</p>
-                </div>
-              </div>
-              {/* <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-primary">
-                  <Phone className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-primary mb-1">
-                    Call Us
-                  </h4>
-                  <p className="text-secondary">+1 (555) 000-0000</p>
-                </div>
-              </div> */}
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-primary">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-primary mb-1">
-                    Visit Us
-                  </h4>
-                  <p className="text-secondary">
-                    九龍觀塘成業街 7 號寧晉中心29 楼 A17 室
-                    <br />
-                    UNIT A17, 29/F., LEGEND TOWER, NO.7 SHING YIP STREET, KWUN
-                    TONG, KOWLOON, HONG KONG
-                  </p>
-                </div>
-              </div>
+        {/* 联系方式改为横向卡片布局 */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Email Card */}
+          <div className="bg-gray-50 p-8 rounded-3xl flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6">
+              <Mail className="w-8 h-8" />
             </div>
+            <h4 className="text-xl font-bold text-primary mb-2">Email Us</h4>
+            <p className="text-secondary">olivia@xglobal.tech</p>
           </div>
 
-          <div className="bg-gray-50 p-8 lg:p-12 rounded-3xl border border-gray-100">
+          {/* Address Card */}
+          <div className="bg-gray-50 p-8 rounded-3xl flex flex-col items-center text-center hover:shadow-lg transition-shadow duration-300">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6">
+              <MapPin className="w-8 h-8" />
+            </div>
+            <h4 className="text-xl font-bold text-primary mb-2">Visit Us</h4>
+            <p className="text-secondary max-w-sm">
+              九龍觀塘成業街 7 號寧晉中心29 楼 A17 室
+              <br />
+              UNIT A17, 29/F., LEGEND TOWER, NO.7 SHING YIP STREET, KWUN TONG,
+              KOWLOON, HONG KONG
+            </p>
+          </div>
+
+          {/* Phone section (Hidden) */}
+          {/* <div className="bg-gray-50 p-8 rounded-3xl flex flex-col items-center text-center">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm mb-6">
+              <Phone className="w-8 h-8" />
+            </div>
+            <h4 className="text-xl font-bold text-primary mb-2">Call Us</h4>
+            <p className="text-secondary">+1 (555) 000-0000</p>
+          </div> */}
+        </div>
+
+        {/* Original Form Section (Hidden) */}
+        {/* <div className="bg-gray-50 p-8 lg:p-12 rounded-3xl border border-gray-100 mt-16 hidden">
             <form className="space-y-6">
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -104,8 +99,7 @@ export const ContactSection = () => {
                 Send Message
               </button>
             </form>
-          </div>
-        </div>
+          </div> */}
       </div>
     </section>
   );
