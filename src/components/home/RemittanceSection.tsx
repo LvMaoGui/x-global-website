@@ -15,7 +15,7 @@ const benefits = [
   },
   {
     title: "Global Coverage",
-    description: "Send money to over 180+ countries with local payout options.",
+    description: "Send money to over 30+ countries with local payout options.",
     icon: Globe,
   },
 ];
